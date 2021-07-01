@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +25,7 @@ class OnBoarding extends StatefulWidget {
 }
 const bodyStyle = TextStyle(fontSize: 19.0, color: Color(0xFFEEF2F5));
 const titleStyle = TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700, color: Color(0xFF3DF2F2));
-const pageDecoration = const PageDecoration(
+PageDecoration pageDecoration =  PageDecoration(
   titleTextStyle: titleStyle,
   bodyTextStyle: bodyStyle,
   descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
@@ -35,8 +36,8 @@ const pageDecoration = const PageDecoration(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: [
-        Color(0xFF945CCC),
-        Color(0xFF683B94)
+        HexColor("#945CCC"),
+        HexColor("#683B94")
       ]
     )
   ),
@@ -65,18 +66,48 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
         PageViewModel(
           title: "Negocie diretamente com os interessados",
-          body:
+          bodyWidget:
+            Text(
               "Tenha o contato dos interessados na palma da sua mão. Use o app para falar por email, telefone ou WhatsApp.",
+              style: bodyStyle, 
+              textAlign: TextAlign.left,
+            ),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Contratos, documentos e financiamento imobiliário.",
-          body: "Quando achar o cliente ideal, contrate a nossa assessoria. Fique tranquilo, nós vamos te ajudar com toda burocracia!",
+          bodyWidget:
+            Text(
+              "Quando achar o cliente ideal, contrate a nossa assessoria. Fique tranquilo, nós vamos te ajudar com toda burocracia!",
+              style: bodyStyle, 
+              textAlign: TextAlign.left,
+            ),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Economize muito mais",
-          body: "Esqueça os 6% de comissão. Na Livima você pode anunciar mais barato e vender mais rápido. O proprietário ganha mais e o comprador paga menos!",
+          bodyWidget:
+            Text(
+              "Esqueça os 6% de comissão. Na Livima você pode anunciar mais barato e vender mais rápido. O proprietário ganha mais e o comprador paga menos!",
+              style: bodyStyle, 
+              textAlign: TextAlign.left,
+            ),
+          footer: Container(
+            width: double.infinity,
+            height: 60,
+            color: Colors.blue,
+          ),
+          //SizedBox(
+          //  width: double.infinity,
+          //  height: 60,
+          //  child: ElevatedButton(
+          //    child: const Text(
+          //      'Let\s go right away!',
+          //      style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+          //    ),
+          //    onPressed: () => _onIntroEnd(context),
+          //  ),
+          //),
           decoration: pageDecoration,
         )
       ],
